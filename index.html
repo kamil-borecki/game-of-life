@@ -1,0 +1,135 @@
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+    <script type="text/javascript" src="./index.js"></script>
+    <style>
+        @keyframes life {
+            0% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(.8)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        @keyframes die {
+            0% {
+                background-color: green;
+                transform: scale(1)
+            }
+
+            5% {
+                background-color: red
+            }
+
+            100% {
+                background-color: gray;
+                transform: scale(.5);
+            }
+        }
+
+        #lifeGround {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #lifeGround>div>label {
+            display: inline-block;
+            position: relative;
+            width: 20px;
+            height: 20px;
+        }
+
+        label:hover {
+            cursor: pointer;
+        }
+
+        label:hover>input:not(:checked)+div {
+            opacity: .8;
+            transform: scale(.7);
+        }
+
+        input {
+            visibility: hidden;
+            position: relative;
+            margin: 0;
+        }
+
+        input+div {
+            position: absolute;
+            left: 10%;
+            top: 10%;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background-color: gray;
+            opacity: .2;
+            box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.75);
+            transition-duration: 500ms;
+            transform: scale(.5);
+            animation-name: die;
+            animation-duration: 2s;
+        }
+
+        input:checked+div {
+            left: 10%;
+            top: 10%;
+            width: 80%;
+            height: 80%;
+            background-color: green;
+            animation-name: life;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            opacity: .8;
+            transform: scale(1)
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            min-width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        .actions{
+            margin-top: 20px;
+        }
+        button{
+            margin: 5px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+            border: none;
+            transition-duration: 500ms;
+        }
+        button:hover{
+            cursor: pointer;
+            box-shadow: 0 0 50px 0px rgba(0, 0, 0, 0.2);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="lifeGround">
+        </div>
+        <div class="actions">
+            <button id="submit">MAKE LIFE HAPPEN</button>
+            <button id="stop">STOP TIME</button>
+        </div>
+    </div>
+
+
+</body>
