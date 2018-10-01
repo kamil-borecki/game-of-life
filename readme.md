@@ -1,5 +1,5 @@
 # GAME OF LIFE #
-## game written during code dojo silesia in about 2 hours ##
+## game written during coding dojo silesia in about 2 hours ##
 ### to run it localy ###
 
 `php -S localhost:8000`
